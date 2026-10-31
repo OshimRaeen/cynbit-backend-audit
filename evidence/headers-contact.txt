@@ -1,0 +1,19 @@
+Captured: 31 Oct 2026, ~10:30 PM IST
+Method: Chrome DevTools > Network > Doc filter > document request > Response headers
+Request: GET https://www.cynbit.in/contact  (200 OK)
+
+age: 511
+cache-control: public, max-age=0, must-revalidate
+content-encoding: br
+content-type: text/html; charset=utf-8
+date: Fri, 30 Oct 2026 05:33:30 GMT
+etag: W/"iuqg0l21p91ded"
+server: Vercel
+strict-transport-security: max-age=63072000
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+x-matched-path: /contact
+x-nextjs-prerender: 1
+x-nextjs-stale-time: 300
+x-powered-by: Next.js
+x-vercel-cache: HIT
+x-vercel-id: bom1::iad1::l5m6v-1793466391303-6cec62dd0ae2
