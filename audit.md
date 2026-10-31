@@ -10,11 +10,14 @@ The basics are in good shape: HTTPS is enforced with HSTS, pages are compressed 
 
 | # | Finding | Severity | How I know |
 |---|---|---|---|
-| F4 | Failed submission leaves the form stuck, no message | Low-Medium | Reproduced offline, plus the code |
-| F5 | Intake endpoint trusts the browser; no abuse controls visible | Medium (unverified) | Read from the page code |
 | F1 | Only HSTS; no CSP or other security headers | Low-Medium | Response headers on / and /contact |
 | F2 | Metadata and redirect point at the wrong host, no canonical | Low | view-source and redirect test |
 | F3 | Headers differ between routes | Informational | Response headers |
+| F4 | Failed submission leaves the form stuck, no message | Low-Medium | Reproduced offline, plus the code |
+| F5 | Intake endpoint trusts the browser; no abuse controls visible | Medium (unverified) | Read from the page code |
+
+
+
 
 If I had a week, I'd fix them in the order F4, F5, F1, F2, F3. The first two affect real visitors and leads; the rest is hardening and housekeeping.
 
