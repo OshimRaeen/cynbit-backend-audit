@@ -52,7 +52,7 @@ script that posts to it directly. Whether the server validates length, format an
 on code I can't see, and testing it would break the brief's rules, so this is a risk to
 confirm, not a confirmed hole.
 Fix: server-side schema validation with length caps, a honeypot plus Turnstile, per-IP rate
-limiting, and structured errors. Working example in reference-impl/ (coming next).
+limiting, and structured errors. Working example in reference-impl/ (17 tests, run with npm test).
 
 ## Limits of this audit
 I only looked at what a normal browser session shows. Server-side validation, rate limiting and
