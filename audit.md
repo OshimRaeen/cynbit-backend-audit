@@ -1,7 +1,24 @@
 # Cynbit Backend Audit
 
-Scope: public intake path of cynbit.in. Method: passive observation in my own browser (DevTools,
-view-source). No scanning, no load, no tampering. Evidence is in /evidence.
+**Scope:** the public side of cynbit.in, mainly the contact form, since that's where visitors hand over personal data.
+**Method:** passive only. My own browser, DevTools and view-source, one normal visit per page. I didn't scan, load-test or send anything hostile, and I didn't submit a real inquiry.
+**Author:** Oshim Raeen, 1 Nov 2026
+
+## Summary
+
+The basics are in good shape: HTTPS is enforced with HSTS, pages are compressed and served from the Vercel edge, and caching is sensible. The weak spot is the contact form. If a submission fails, the form freezes with no message, and everything that protects the endpoint seems to depend on the browser. I couldn't see their server code, so I've marked what I confirmed and what I only suspect.
+
+| # | Finding | Severity | How I know |
+|---|---|---|---|
+| F4 | Failed submission leaves the form stuck, no message | Low-Medium | Reproduced offline, plus the code |
+| F5 | Intake endpoint trusts the browser; no abuse controls visible | Medium (unverified) | Read from the page code |
+| F1 | Only HSTS; no CSP or other security headers | Low-Medium | Response headers on / and /contact |
+| F2 | Metadata and redirect point at the wrong host, no canonical | Low | view-source and redirect test |
+| F3 | Headers differ between routes | Informational | Response headers |
+
+If I had a week, I'd fix them in the order F4, F5, F1, F2, F3. The first two affect real visitors and leads; the rest is hardening and housekeeping.
+
+The code for each fix is in `fixes/`, and a tested version of the contact handler is in `reference-impl/`.
 
 ## What looks good
 - HSTS with a 2-year max-age; Brotli compression; ETag + must-revalidate; HTML served from the
