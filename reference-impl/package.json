@@ -1,0 +1,19 @@
+{
+  "name": "cynbit-inquiry-reference",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reference version of the contact-form handler discussed in AUDIT.md (F4, F5)",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.1.0"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}
